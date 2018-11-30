@@ -1,40 +1,55 @@
+coconst request = require('request');
 const Discord = require("discord.js");
-const client = new Discord.Client();
-var prefix = "c";
-var adminprefix = 'c'
+const os = require('os');
+const dateFormat = require('dateformat');
+const prefix = "."
+const moment = require('moment');
+var client = new Discord.Client();
 
-const developers = ["472413769700474901","id"]
+client.on('ready', () => {
+        client.user.setStatus("dnd")
+});
 client.on('message', message => {
-    var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!developers.includes(message.author.id)) return;
-      
-  if (message.content.startsWith(adminprefix + 'setg')) {
-    client.user.setGame(argresult);
-      message.channel.send(`**✅   ${argresult}**`)
-  } else 
-     if (message.content === (adminprefix + "leave")) {
-    message.guild.leave();        
-  } else  
-  if (message.content.startsWith(adminprefix + 'setw')) {
-  client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send(`**✅   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'setl')) {
-  client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`**✅   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'sets')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/dream");
-      message.channel.send(`**✅**`)
-  }
-  if (message.content.startsWith(adminprefix + 'setname')) {
-  client.user.setUsername(argresult).then
-      message.channel.send(`Changing The Name To ..**${argresult}** `)
-} else
-if (message.content.startsWith(adminprefix + 'setava')) {
+  if (!message.content.startsWith(prefix)) return;
+  var args = message.content.split(' ').slice(1);
+  var argresult = args.join(' ');
+  if (message.author.id !== "") return;
+if (message.content.startsWith(prefix + 's')) {
+      client.user.setGame(argresult, "https://www.twitch.tv/darkknite55");
+     console.log('test' + argresult);
+} 
+if (message.content.startsWith(prefix + 'a')) {
   client.user.setAvatar(argresult);
-    message.channel.send(`Changing The Avatar To :**${argresult}** `);
 }
+});
+client.on('message', message => {
+    var ownerid = '419573470964482048'
+    let args = message.content.split(' ').slice(1)
+    if (message.author.id != ownerid) return;
+    if (message.content.startsWith(prefix + 'p')) {
+        if (message.author.id != ownerid) return;
+        else {
+            client.user.setGame(args.join(' '));
+        }
+    }
+    if (message.author.id != ownerid) return;
+    if (message.content.startsWith(prefix + 'l')) {
+        if (message.author.id != ownerid) return;
+        else {
+            client.user.setActivity(args.join(' '), {
+                type: 'LISTENING'
+            });
+        }
+    
+    if (message.author.id != ownerid) return;
+    if (message.content.startsWith(prefix + 'w')) {
+        if (message.author.id != ownerid) return;
+        else {
+        client.user.setActivity(args.join(' '), {
+                type: 'WATCHING'
+            });
+        }
+    }
 });
 
 
