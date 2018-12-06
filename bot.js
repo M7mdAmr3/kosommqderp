@@ -1,56 +1,55 @@
-coconst request = require('request');
-const Discord = require("discord.js");
-const os = require('os');
-const dateFormat = require('dateformat');
-const prefix = "."
-const moment = require('moment');
-var client = new Discord.Client();
+const Discord = require('discord.js');
+const client = new Discord.Client();
 
-client.on('ready', () => {
-        client.user.setStatus("dnd")
+
+client.on('ready', function() {
+    console.log(`i am ready ${client.user.username}`);
 });
+
+
+
+
+
+
+
+
+
+
+
+const developers = ["401416384216694785","",""]
+const adminprefix = "!";
 client.on('message', message => {
-  if (!message.content.startsWith(prefix)) return;
-  var args = message.content.split(' ').slice(1);
-  var argresult = args.join(' ');
-  if (message.author.id !== "") return;
-if (message.content.startsWith(prefix + 's')) {
-      client.user.setGame(argresult, "https://www.twitch.tv/darkknite55");
-     console.log('test' + argresult);
-} 
-if (message.content.startsWith(prefix + 'a')) {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!developers.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'ply')) {
+    client.user.setGame(argresult);
+      message.channel.send(`**Now Playig   ${argresult}**`)
+  } else 
+     if (message.content === (adminprefix + "leaveserver")) {
+    message.guild.leave();        
+  } else  
+  if (message.content.startsWith(adminprefix + 'wat')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.send(`**Now Watching   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'lis')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.send(`**Now Listening   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'stream')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/idk");
+      message.channel.send(`**Now Streaming   ${argresult}**`)
+  }
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'setavatar')) {
   client.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
 }
 });
-client.on('message', message => {
-    var ownerid = '419573470964482048'
-    let args = message.content.split(' ').slice(1)
-    if (message.author.id != ownerid) return;
-    if (message.content.startsWith(prefix + 'p')) {
-        if (message.author.id != ownerid) return;
-        else {
-            client.user.setGame(args.join(' '));
-        }
-    }
-    if (message.author.id != ownerid) return;
-    if (message.content.startsWith(prefix + 'l')) {
-        if (message.author.id != ownerid) return;
-        else {
-            client.user.setActivity(args.join(' '), {
-                type: 'LISTENING'
-            });
-        }
-    
-    if (message.author.id != ownerid) return;
-    if (message.content.startsWith(prefix + 'w')) {
-        if (message.author.id != ownerid) return;
-        else {
-        client.user.setActivity(args.join(' '), {
-                type: 'WATCHING'
-            });
-        }
-    }
-});
 
 
-client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
+client.login(process.env.BOT_TOKEN);
