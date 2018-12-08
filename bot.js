@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 
 client.on('ready', function() {
-    console.log(`i am ready ${client.user.username}`);
+    console.log(` The Bot is Ready ${client.user.username}`);
 });
 
 
@@ -17,7 +17,7 @@ client.on('ready', function() {
 
 
 const developers = ["401416384216694785","",""]
-const adminprefix = "!";
+const adminprefix = ".";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
