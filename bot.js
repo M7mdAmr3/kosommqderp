@@ -24,22 +24,22 @@ client.on('message', message => {
       
   if (message.content.startsWith(adminprefix + 'ply')) {
     client.user.setGame(argresult);
-      message.channel.send(`**Now Playig   ${argresult}**`)
+      message.channel.send(`**dun  ${argresult}**`)
   } else 
      if (message.content === (adminprefix + "leaveserver")) {
     message.guild.leave();        
   } else  
   if (message.content.startsWith(adminprefix + 'wat')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send(`**Now Watching   ${argresult}**`)
+      message.channel.send(`**dun ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 'lis')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`**Now Listening   ${argresult}**`)
+      message.channel.send(`**  dun ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 'stream')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/idk");
-      message.channel.send(`**Now Streaming   ${argresult}**`)
+    client.user.setGame(argresult, "https://www.twitch.tv/xnxc");
+      message.channel.send(`**DONE   ${argresult}**`)
   }
   if (message.content.startsWith(adminprefix + 'setname')) {
   client.user.setUsername(argresult).then
