@@ -24,7 +24,7 @@ client.on('message', message => {
       
   if (message.content.startsWith(adminprefix + 'p')) {
     client.user.setGame(argresult);
-      message.channel.send(`**dun  ${argresult}**`)
+      message.channel.send(`**duun  ${argresult}**`)
   } else 
      if (message.content === (adminprefix + "leaveserver")) {
     message.guild.leave();        
