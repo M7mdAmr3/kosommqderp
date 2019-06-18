@@ -31,15 +31,15 @@ client.on('message', message => {
   } else  
   if (message.content.startsWith(adminprefix + 'w')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send(`**   Staus Watching set to ${argresult}**`)
+      message.channel.send(`**Staus Watching set to ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 'l')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`**   Staus Playing set to ${argresult}**`)
+      message.channel.send(`**Staus Playing set to ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 's')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/xnxc");
-      message.channel.send(`**   Staus Sreaming (Fake) set to   ${argresult}**`)
+    client.user.setGame(argresult, "https://www.twitch.tv/nothingontwitchbecauseitsfake");
+      message.channel.send(`**Staus Sreaming (Fake) set to   ${argresult}**`)
   }
   if (message.content.startsWith(adminprefix + 'setname')) {
   client.user.setUsername(argresult).then
