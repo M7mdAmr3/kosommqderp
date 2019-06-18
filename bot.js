@@ -16,7 +16,7 @@ client.on('ready', function() {
 
 
 
-const developers = ["527006451269369877","527006451269369877","446123919020130305"]
+const developers = ["527006451269369877","523794902337978379","446123919020130305"]
 const adminprefix = "#";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
@@ -24,22 +24,22 @@ client.on('message', message => {
       
   if (message.content.startsWith(adminprefix + 'p')) {
     client.user.setGame(argresult);
-      message.channel.send(`**duun  ${argresult}**`)
+      message.channel.send(`**   Staus Playing set to  ${argresult}**`)
   } else 
      if (message.content === (adminprefix + "leaveserver")) {
     message.guild.leave();        
   } else  
   if (message.content.startsWith(adminprefix + 'w')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send(`**dun ${argresult}**`)
+      message.channel.send(`**   Staus Watching set to ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 'l')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`**  dun ${argresult}**`)
+      message.channel.send(`**   Staus Playing set to ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 's')) {
     client.user.setGame(argresult, "https://www.twitch.tv/xnxc");
-      message.channel.send(`**DONE   ${argresult}**`)
+      message.channel.send(`**   Staus Sreaming (Fake) set to   ${argresult}**`)
   }
   if (message.content.startsWith(adminprefix + 'setname')) {
   client.user.setUsername(argresult).then
@@ -47,7 +47,7 @@ client.on('message', message => {
 } else
 if (message.content.startsWith(adminprefix + 'setavatar')) {
   client.user.setAvatar(argresult);
-    message.channel.send(`Changing The Avatar To :**${argresult}** `);
+    message.channel.send(`Avatar Changed :**${argresult}** `);
 }
 });
 
