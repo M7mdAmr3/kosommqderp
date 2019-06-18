@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 
 client.on('ready', function() {
-    console.log(` The Bot is Ready ${client.user.username}`);
+    console.log(` Bot Started - Please Wait ${client.user.username}`);
 });
 
 
